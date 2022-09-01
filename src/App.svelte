@@ -4,21 +4,27 @@
 	// import 'mapbox-gl/dist/mapbox-gl.css';
 
 	mapboxgl.accessToken = 'pk.eyJ1Ijoic2Nob29sb2ZjaXRpZXMiLCJhIjoiY2w3aml0dHdlMHlpazNwbWh0em4xOHNlaCJ9.fXNtPGq0DqYiFvPH6p4fjQ';
+
+	let map;
 	
 	onMount(() => {
-		const map = new mapboxgl.Map({
-		container: 'map', // container ID
-		style: 'mapbox://styles/schoolofcities/cl7j75gbd003b14ocub8skc7c', // style URL
-		center: [-79.45, 43.65], // starting position [lng, lat]
-		zoom: 10, // starting zoom
-		projection: 'globe' // display the map as a 3D globe
+		map = new mapboxgl.Map({
+			container: 'map', 
+			style: 'mapbox://styles/schoolofcities/cl7j75gbd003b14ocub8skc7c',
+			center: [-79.45, 43.65], 
+			zoom: 10, // starting zoom
+			maxZoom: 12,
+			minZoom: 9,
+			projection: 'globe' 
 		});
-		// map.on('style.load', () => {
-		// map.setFog({}); // Set the default atmosphere style
-		// });
+
+		map.addControl(new mapboxgl.NavigationControl());
+		map.addControl(new mapboxgl.FullscreenControl());
 	});
 
-
+	function mapZoom() {
+		map.zoomTo(12)
+	}
 
 </script>
 
@@ -29,6 +35,12 @@
 
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
 </svelte:head>
+
+<div id="zoom">
+	<button on:click={mapZoom}>
+		click
+	</button>
+</div>
 
 <div id="map"></div>
 
@@ -47,7 +59,11 @@
 		background-color: #fff;
 	}
 
+	#zoom {
+		height: 50px;
+	}
+
 	#map {
-		height: 100vh;
+		height: 750px;
 	}
 </style>
