@@ -15,11 +15,12 @@
 			zoom: 10, // starting zoom
 			maxZoom: 12,
 			minZoom: 9,
-			projection: 'globe' 
+			projection: 'globe',
+			scrollZoom: false
 		});
 
-		map.addControl(new mapboxgl.NavigationControl());
-		map.addControl(new mapboxgl.FullscreenControl());
+		map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+		map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
 	});
 
 	function mapZoom() {
@@ -36,6 +37,17 @@
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
 </svelte:head>
 
+<div id="title">
+
+	
+</div>
+
+<div id="text">
+	<p>
+		Canadian urban regions have undergone substantial change over the the past several decades. In the map below we visualize by neighbourhood (represented by census tracts) whether the population has grown (QQQ) or declined (QQQ) between 1996 and 2021. Despite the total population across the 33 urban regions increasing by QQQQQ, QQQQ% of neighbourhoods witnessed population loss. A general trend is sprawling population growth in the suburban fringes and concentrated development in central nodes, with population decline occurring in many older pre-1996 residential neighbourhoods, but this isn't evident everywhere. Explore the map below to see more.
+	</p>
+</div>
+
 <div id="zoom">
 	<button on:click={mapZoom}>
 		click
@@ -43,6 +55,8 @@
 </div>
 
 <div id="map"></div>
+
+<div id="text"></div>
 
 
 <style>
@@ -59,11 +73,20 @@
 		background-color: #fff;
 	}
 
+	#text {
+		margin: auto;
+		width: 600px;
+		line-height: 1.5;
+		
+	}
+
 	#zoom {
 		height: 50px;
 	}
 
 	#map {
-		height: 750px;
+		height: calc(100vh - 80px);
+		border-top: solid 1px grey;
+		border-bottom: solid 1px grey;
 	}
 </style>
