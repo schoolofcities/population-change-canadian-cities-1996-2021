@@ -1,11 +1,15 @@
 <script>
 	import { onMount } from 'svelte'
 	import mapboxgl from "mapbox-gl";
+	import Typeahead from "svelte-typeahead";
+	import data from "./lib/cities.js";
 
 	mapboxgl.accessToken = 'pk.eyJ1Ijoic2Nob29sb2ZjaXRpZXMiLCJhIjoiY2w3aml0dHdlMHlpazNwbWh0em4xOHNlaCJ9.fXNtPGq0DqYiFvPH6p4fjQ';
 
 	let map;
 	let city = "Toronto"
+
+	let events = [];
 	
 	onMount(() => {
 		map = new mapboxgl.Map({
@@ -27,6 +31,7 @@
 		console.log(city)
 		map.zoomTo(10)
 	}
+
 
 	// https://svelte.dev/repl/a1b828d80de24f7e995b2365782c8d04?version=3.50.0
 
@@ -67,9 +72,23 @@
 		</p>
 	</div>
 
+	<Typeahead
+	{data}
+	label="U.S. States"
+	placeholder={`Search U.S. states (e.g. "California")`}
+	extract={(item) => item.city}
+	disable={(item) => /Carolina/.test(item.city)}
+	on:select={({ detail }) => events = [...events, detail]}
+	on:clear={() => events = [...events, "clear"]}
+	/>
+
+	<pre>
+		{JSON.stringify(events, null, 2)}
+	</pre>
+
 </main>
 
-<div id="map"></div>
+<!-- <div id="map"></div> -->
 
 <main>
 
@@ -78,6 +97,7 @@
 </main>
 
 <style>
+	
 	@font-face {
 		font-family: TradeGothicBold;
 		src: url("./assets/Trade Gothic LT Bold.ttf");
