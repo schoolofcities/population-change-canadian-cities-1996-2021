@@ -28,6 +28,8 @@
 		map.zoomTo(10)
 	}
 
+	// https://svelte.dev/repl/a1b828d80de24f7e995b2365782c8d04?version=3.50.0
+
 </script>
 
 <svelte:head>
@@ -40,41 +42,40 @@
 
 <main>
 
-<div id="title">
-	<h1>25 Years of Population Growth & Decline in Canadian Cities</h1>
-	<p>Visualizing neighbourhood change from 1996 to 2021</p>
-</div>
+	<div id="title">
+		<h1>25 Years of Population Growth & Decline in Canadian Cities</h1>
+		<p>Visualizing neighbourhood change from 1996 to 2021</p>
+	</div>
 
-<div id="text">
-	<p>
-		Canadian urban regions have undergone substantial changes over the the past several decades. In the maps below we visualize by neighbourhood (represented by census tracts) whether the population has grown (QQQ) or declined (QQQ) between 1996 and 2021. The total population across the 3X urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss. 
-	</p>
-</div>
-<div id="text">
-	<p>	
-		The maps show a general trend of population growth both in the suburban fringes and concentrated in some downtowns, with population decline occurring in many older pre-1996 residential neighbourhoods. But these trends aren't evident everywhere. Click on a city to zoom to it.
-	</p>
-</div>
+	<div id="text">
+		<p>
+			Canadian urban regions have undergone substantial changes over the the past several decades. In the maps below we visualize by neighbourhood (represented by census tracts) whether the population has grown (QQQ) or declined (QQQ) between 1996 and 2021. The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss. 
+		</p>
+	</div>
+	<div id="text">
+		<p>	
+			The maps show a general trend of population growth both in the suburban fringes and concentrated in some downtowns, with population decline occurring in many older pre-1996 residential neighbourhoods. But these trends aren't evident everywhere. Click and explore below:
+		</p>
+	</div>
 
-<div id="text">
-	<p>
-		<span id="cityZoom" on:click={mapPan}>Victoria</span> |
-		<span id="cityZoom" on:click={mapPan}>Vancouver</span> | 
-		<span id="cityZoom" on:click={mapPan}>Kamploops</span> |
-		<span id="cityZoom" on:click={mapPan}>Kelowna</span>
-
-	</p>
-</div>
+	<div id="text">
+		<p>
+			<span id="cityZoom" on:click={() => mapPan("Victoria")}>Victoria</span> |
+			<span id="cityZoom" on:click={() => mapPan("Vancouver")}>Vancouver</span> | 
+			<span id="cityZoom" on:click={() => mapPan("Kamloops")}>Kamploops</span> |
+			<span id="cityZoom" on:click={() => mapPan("Kelowna")}>Kelowna</span> 
+		</p>
+	</div>
 
 </main>
 
-
-
-
 <div id="map"></div>
 
-<div id="text"></div>
+<main>
 
+	<div id="text"></div>
+
+</main>
 
 <style>
 	@font-face {
@@ -99,6 +100,8 @@
 		max-width: 600px;
 		margin-left: 20px;
 		margin-right: 20px;
+		border-bottom: solid 1px #1E3765;
+		padding-bottom: 7px;
 	}
 
 	#title h1 {
@@ -116,11 +119,11 @@
 	#text {
 		max-width: 600px;
 		line-height: 1.5;
-		border-left: solid 1px grey;
+		border-left: solid 1px #1E3765;
 		padding-left: 20px;
 		margin-left: 20px;
 		margin-right: 20px;
-		color: #454545
+		color: #1e3765bd
 	}
 
 	#zoom {
@@ -136,7 +139,7 @@
 
 	#map {
 		height: calc(100vh - 80px);
-		border-top: solid 1px grey;
-		border-bottom: solid 1px grey;
+		border-top: solid 1px #1E3765;
+		border-bottom: solid 1px #1E3765;
 	}
 </style>
