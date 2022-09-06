@@ -44,7 +44,10 @@
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
 </svelte:head>
 
+
 <main>
+
+<div id="panel">
 
 	<div id="title">
 		<h1>25 Years of Population Growth & Decline in Canadian Cities</h1>
@@ -63,28 +66,25 @@
 	</div>
 
 	<div id="text">
-	<Typeahead
-		{data}
-		label="Select a city to zoom to:"
-		placeholder={`Search`}
-		extract={(item) => item.city}
-		disable={(item) => /Carolina/.test(item.city)}
-		on:select={({ detail }) => map.panTo([detail.original.x,detail.original.y])}
-		on:clear={() => events = [...events, "clear"]}
-	/>
-</div>	
+		<Typeahead
+			{data}
+			label="Select a city to zoom to:"
+			placeholder={`Search`}
+			extract={(item) => item.city}
+			disable={(item) => /Carolina/.test(item.city)}
+			on:select={({ detail }) => map.panTo([detail.original.x,detail.original.y])}
+			on:clear={() => events = [...events, "clear"]}
+		/>
+	</div>	
 
 
 
-</main>
+</div>
 
 <div id="map"></div>
 
-<main>
-
-	<div id="text"></div>
-
 </main>
+
 
 <style>
 
@@ -112,7 +112,15 @@
 
 	main {
 		margin: auto;
-		max-width: 600px;
+		width: 100%;
+	}
+
+	#panel {
+		margin: auto;
+		width: 499px;
+		height: 100vh;
+		border-right: solid 1px #1E3765;
+		float: left;
 	}
 
 	#title {
@@ -156,9 +164,9 @@
 		cursor: pointer;
 	}
 
+
 	#map {
-		height: calc(100vh - 80px);
-		border-top: solid 1px #1E3765;
-		border-bottom: solid 1px #1E3765;
+		height: 100vh;
+		width: calc(100vw - 500px);
 	}
 </style>
