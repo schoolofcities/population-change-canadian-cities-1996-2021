@@ -71,8 +71,8 @@
 	<div id="text">
 		<Typeahead
 			{data}
-			label="Select a city to zoom to:"
-			placeholder={`Search`}
+			label=""
+			placeholder={`search and zoom to a city`}
 			extract={(item) => item.city}
 			disable={(item) => /Carolina/.test(item.city)}
 			on:select={({ detail }) => map.panTo([detail.original.x,detail.original.y])}
@@ -91,13 +91,8 @@
 
 <style>
 
-	:global([data-svelte-search] listbox) {
-		width: 100%;
-		font-size: 12px;
-		padding: 0.5rem;
-		margin: 0.5rem 0;
-		border: 1px solid #e0e0e0;
-		border-radius: 0.25rem;
+	:global([data-svelte-search] label) {
+		display: none;
 	}
 	
 	@font-face {
@@ -116,6 +111,7 @@
 	main {
 		margin: auto;
 		width: 100%;
+		background-color: #f4f4f4;
 	}
 
 	#panel {
@@ -130,8 +126,8 @@
 		max-width: 600px;
 		margin-left: 20px;
 		margin-right: 20px;
-		border-bottom: solid 1px #1E3765;
-		padding-bottom: 7px;
+		/* border-bottom: solid 1px #1E3765;
+		padding-bottom: 7px; */
 	}
 
 	#title h1 {
