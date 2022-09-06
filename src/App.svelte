@@ -8,16 +8,13 @@
 	mapboxgl.accessToken = 'pk.eyJ1Ijoic2Nob29sb2ZjaXRpZXMiLCJhIjoiY2w3aml0dHdlMHlpazNwbWh0em4xOHNlaCJ9.fXNtPGq0DqYiFvPH6p4fjQ';
 
 	let map;
-	let city = "Toronto"
-
-	let events = [];
 	
 	onMount(() => {
 		map = new mapboxgl.Map({
 			container: 'map', 
 			style: 'mapbox://styles/schoolofcities/cl7j75gbd003b14ocub8skc7c',
 			center: [-79.45, 43.65], 
-			zoom: 10, // starting zoom
+			zoom: 10,
 			maxZoom: 12,
 			minZoom: 9,
 			projection: 'globe',
@@ -28,10 +25,10 @@
 		map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
 	});
 
-	function mapPan(city) {
-		console.log(city)
-		map.zoomTo(10)
-	}
+	// function mapPan(city) {
+	// 	console.log(city)
+	// 	map.zoomTo(10)
+	// }
 
 	// https://svelte.dev/repl/a1b828d80de24f7e995b2365782c8d04?version=3.50.0
 
@@ -76,7 +73,6 @@
 			extract={(item) => item.city}
 			disable={(item) => /Carolina/.test(item.city)}
 			on:select={({ detail }) => map.panTo([detail.original.x,detail.original.y])}
-			on:clear={() => events = [...events, "clear"]}
 		/>
 	</div>	
 
