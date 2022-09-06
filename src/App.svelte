@@ -3,6 +3,7 @@
 	import mapboxgl from "mapbox-gl";
 	import Typeahead from "svelte-typeahead";
 	import data from "./lib/cities.js";
+	import Circle from "./lib/circle.svelte";
 
 	mapboxgl.accessToken = 'pk.eyJ1Ijoic2Nob29sb2ZjaXRpZXMiLCJhIjoiY2w3aml0dHdlMHlpazNwbWh0em4xOHNlaCJ9.fXNtPGq0DqYiFvPH6p4fjQ';
 
@@ -20,7 +21,7 @@
 			maxZoom: 12,
 			minZoom: 9,
 			projection: 'globe',
-			scrollZoom: false
+			scrollZoom: true
 		});
 
 		map.addControl(new mapboxgl.NavigationControl(), 'top-left');
@@ -51,19 +52,21 @@
 
 	<div id="title">
 		<h1>25 Years of Population Growth & Decline in Canadian Cities</h1>
-		<p>Visualizing neighbourhood change from 1996 to 2021</p>
 	</div>
+
+	
 
 	<div id="text">
 		<p>
-			Canadian urban regions have undergone substantial changes over the the past several decades. In the maps below we visualize by neighbourhood (represented by census tracts) whether the population has grown (QQQ) or declined (QQQ) between 1996 and 2021. The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss. 
+			<p>Visualizing by neighbourhood census tracts whether the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <b>1996</b> and <b>2021</b>. 
+				<!-- The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss.  -->
 		</p>
 	</div>
-	<div id="text">
+	<!-- <div id="text">
 		<p>	
 			The maps show a general trend of population growth both in the suburban fringes and concentrated in some downtowns, with population decline occurring in many older pre-1996 residential neighbourhoods. But these trends aren't evident everywhere. Click and explore below:
 		</p>
-	</div>
+	</div> -->
 
 	<div id="text">
 		<Typeahead
@@ -117,7 +120,7 @@
 
 	#panel {
 		margin: auto;
-		width: 499px;
+		width: 399px;
 		height: 100vh;
 		border-right: solid 1px #1E3765;
 		float: left;
@@ -133,7 +136,7 @@
 
 	#title h1 {
 		font-family: TradeGothicBold, sans-serif;
-		font-size: 28px;
+		font-size: 20px;
 		color: #1E3765
 	}
 
@@ -146,11 +149,11 @@
 	#text {
 		max-width: 600px;
 		line-height: 1.5;
-		border-left: solid 1px #1E3765;
-		padding-left: 20px;
+		/* border-left: solid 1px #1E3765; */
+		/* padding-left: 20px; */
 		margin-left: 20px;
 		margin-right: 20px;
-		color: #1e3765bd
+		color: rgb(70, 70, 70);
 	}
 
 	#zoom {
@@ -167,6 +170,6 @@
 
 	#map {
 		height: 100vh;
-		width: calc(100vw - 500px);
+		width: calc(100vw - 400px);
 	}
 </style>
