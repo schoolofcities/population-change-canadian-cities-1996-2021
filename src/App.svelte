@@ -23,7 +23,16 @@
 
 		map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 		map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
+
+		map.on('mouseenter', 'ct_boundaries', () => {
+			map.getCanvas().style.cursor = 'pointer';
+		});
+		// map.on('mouseleave', 'ct_boundaries', () => {
+		// 	map.getCanvas().style.cursor = '';
+		// })
+
 	});
+
 
 	// function mapPan(city) {
 	// 	console.log(city)
