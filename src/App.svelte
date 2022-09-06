@@ -32,7 +32,6 @@
 		map.zoomTo(10)
 	}
 
-
 	// https://svelte.dev/repl/a1b828d80de24f7e995b2365782c8d04?version=3.50.0
 
 </script>
@@ -64,31 +63,22 @@
 	</div>
 
 	<div id="text">
-		<p>
-			<span id="cityZoom" on:click={() => mapPan("Victoria")}>Victoria</span> |
-			<span id="cityZoom" on:click={() => mapPan("Vancouver")}>Vancouver</span> | 
-			<span id="cityZoom" on:click={() => mapPan("Kamloops")}>Kamploops</span> |
-			<span id="cityZoom" on:click={() => mapPan("Kelowna")}>Kelowna</span> 
-		</p>
-	</div>
-
 	<Typeahead
-	{data}
-	label="U.S. States"
-	placeholder={`Search U.S. states (e.g. "California")`}
-	extract={(item) => item.city}
-	disable={(item) => /Carolina/.test(item.city)}
-	on:select={({ detail }) => events = [...events, detail]}
-	on:clear={() => events = [...events, "clear"]}
+		{data}
+		label="Select a city to zoom to:"
+		placeholder={`Search`}
+		extract={(item) => item.city}
+		disable={(item) => /Carolina/.test(item.city)}
+		on:select={({ detail }) => map.panTo([detail.original.x,detail.original.y])}
+		on:clear={() => events = [...events, "clear"]}
 	/>
+</div>	
 
-	<pre>
-		{JSON.stringify(events, null, 2)}
-	</pre>
+
 
 </main>
 
-<!-- <div id="map"></div> -->
+<div id="map"></div>
 
 <main>
 
@@ -97,6 +87,15 @@
 </main>
 
 <style>
+
+	:global([data-svelte-search] listbox) {
+		width: 100%;
+		font-size: 12px;
+		padding: 0.5rem;
+		margin: 0.5rem 0;
+		border: 1px solid #e0e0e0;
+		border-radius: 0.25rem;
+	}
 	
 	@font-face {
 		font-family: TradeGothicBold;
