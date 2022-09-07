@@ -24,9 +24,15 @@
 			projection: 'globe',
 			scrollZoom: true
 		});
-
+		
+		map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
 		map.addControl(new mapboxgl.NavigationControl(), 'top-left');
-		map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
+		
+		const scale = new mapboxgl.ScaleControl({
+			maxWidth: 100,
+			unit: 'metric'
+			});
+		map.addControl(scale, 'bottom-right');
 
 		map.on('mouseenter', 'ct_fill', () => {
 			map.getCanvas().style.cursor = 'pointer';
@@ -62,8 +68,11 @@
 
 		});
 
-		
 	});
+
+	function hideShow() {
+		console.log("meow")
+	}
 
 
 	// function mapPan(city) {
@@ -86,23 +95,11 @@
 
 <main>
 
-<div id="panel">
+<div id="map"></div>
 
-	<div id="title">
-		<h1>25 Years of Population Growth & Decline in Canadian Cities</h1>
-	</div>
 
-	
-	<div id="text">
-		<p>
-			<p>Visualizing by neighbourhood census tracts whether the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <b>1996</b> and <b>2021</b>. 
-				<!-- The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss.  -->
-		</p>
-	</div>
-	
-
-	<div id="text">
-		<Typeahead
+<div id="search">
+	<Typeahead
 			{data}
 			label=""
 			inputAfterSelect="clear"
@@ -113,16 +110,37 @@
 			let:result
 		>
 		<span id="search-results">{@html result.string}</span>
-		</Typeahead>
-	</div>
+	</Typeahead>
+</div>
 
-	<div id="text">
-		<p>	
-			The area of the circles are proportional to the number of people who moved in or moved out of each neighbourhood.
+
+
+<div id="panel">
+
+	<div id="title">
+		<h1>25 Years of Population Growth & Decline in Canadian Cities</h1>
+
+		<p>
+			<p>Visualizing by neighbourhood census tracts how the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <span id="bold">1996</span> and <span id="bold">2021</span>. 
+
 		</p>
 	</div>
 
+	<div id="more-less" on:click={hideShow}>
+		<p>Read More</p>
+	</div>
+	
 	<div id="text">
+		<p>
+			<p>Visualizing by neighbourhood census tracts whether the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <b>1996</b> and <b>2021</b>. 
+				<!-- The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss.  -->
+		</p>
+	
+
+		<p>	
+			The area of the circles are proportional to the number of people who moved in or moved out of each neighbourhood.
+		</p>
+	
 		<p>	
 			Click on the map to view numbers for a specific neighbourhood.
 		</p>
@@ -133,7 +151,7 @@
 
 
 
-<div id="map"></div>
+
 
 </main>
 
@@ -148,7 +166,18 @@
 	:root {
 		font-family: 'Roboto', sans-serif;
 	}
-	
+
+
+
+	:global([data-svelte-search]) {
+		/* height: 50px; */
+		border: solid 1px lightgrey;
+		border-radius: 4px;
+		background-color: none;
+	}
+	:global([data-svelte-search] li) {
+		height: 50px;
+	}
 	:global([data-svelte-search] label) {
 		display: none;
 	}
@@ -165,27 +194,47 @@
 		color: #1E3765;
 		font-family: Roboto, sans-serif;
 	}
+	#search {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		z-index: 99;
+		opacity: 0.93;
+	}
+
+
+
 
 	main {
 		margin: auto;
 		width: 100%;
-		background-color: rgb(250, 250, 250);
+		margin-bottom: -15px;
+
+		/* position: relative; */
 	}
 
 	#panel {
 		margin: auto;
-		width: 399px;
-		height: 100vh;
+		width: 385px;
+		height: 150px;
 		border-right: solid 1px #1E3765;
+		border-top: solid 1px #1E3765;
+		border-top-right-radius: 25px;
 		float: left;
+		z-index: 99;
+		background-color: rgb(250, 250, 250);
+		bottom: 0;
+		position: absolute;
+		opacity: 0.9
+		/* display: none; */
 	}
 
 	#title {
 		max-width: 600px;
 		margin-left: 20px;
 		margin-right: 20px;
-		/* border-bottom: solid 1px #1E3765;
-		padding-bottom: 7px; */
+		padding-bottom: 8px;
+		margin-bottom: 0px;
 	}
 
 	#title h1 {
@@ -195,16 +244,50 @@
 	}
 
 	#title p {
-		font-family: 'Roboto', sans-serif;
-		font-size: 15px;
-		color: #1E3765
+		margin-top: -5px;
+		color: rgb(70, 70, 70);
+		font-family: Roboto, sans-serif;
+		font-size: 12px;
+		line-height: 1.75;
+	}
+
+	#bold {
+		color: black;
+		font-weight: bold;
+		font-size: 14px;
+	}
+
+	#more-less {
+		height: 20px;
+		margin: 0px;
+		padding: 0px;
+		padding-bottom: -5px;		
+		margin-top: -15px;
+		padding-left: 20px;
+		padding-right: 20px;
+		border-top: solid 1px #1E3765;
+		border-bottom: solid 1px #1E3765;
+		font-family: Roboto, sans-serif;
+		font-size: 12px;
+		background-color: #fff;
+	}
+	#more-less:hover {
+		cursor: pointer;
+		background-color: #F1C500;
+	}
+
+	#more-less p {
+		color: rgb(70, 70, 70);
+		font-family: Roboto, sans-serif;
+		
+		padding: 0px;
+		margin: 0px;
 	}
 
 	#text {
+		display: none;
 		max-width: 600px;
 		line-height: 1.5;
-		/* border-left: solid 1px #1E3765; */
-		/* padding-left: 20px; */
 		margin-left: 20px;
 		margin-right: 20px;
 		color: rgb(70, 70, 70);
@@ -222,8 +305,16 @@
 	}
 
 
+
+
 	#map {
 		height: 100vh;
-		width: calc(100vw - 400px);
+		width: 100%;
+		top: 0;
+        left: 0;
+		position: absolute;
+		z-index: -99;
 	}
+
+	
 </style>
