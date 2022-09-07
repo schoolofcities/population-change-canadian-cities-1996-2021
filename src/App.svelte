@@ -74,11 +74,9 @@
 		console.log("meow")
 	}
 
-
-	// function mapPan(city) {
-	// 	console.log(city)
-	// 	map.zoomTo(10)
-	// }
+	function placeClick(city) {
+		map.panTo(city.original.geometry.coordinates);
+	}
 
 	// https://svelte.dev/repl/a1b828d80de24f7e995b2365782c8d04?version=3.50.0
 
@@ -106,7 +104,7 @@
 			placeholder={`search and zoom to a city`}
 			limit={5}
 			extract={(item) => item.properties.GEONAME}
-			on:select={({ detail }) => map.panTo(detail.original.geometry.coordinates)}
+			on:select={({ detail }) => placeClick(detail)}
 			let:result
 		>
 		<span id="search-results">{@html result.string}</span>
