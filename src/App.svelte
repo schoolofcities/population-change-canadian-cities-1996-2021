@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte'
 	import mapboxgl from "mapbox-gl";
 	import Typeahead from "svelte-typeahead";
-	// import data from "./lib/cities.js";
 	import places from "./assets/places.geo.json";
 	import Circle from "./lib/circle.svelte";
 	import popupContent from "./lib/popupContent.js"
@@ -89,12 +88,16 @@
 		<Typeahead
 			{data}
 			label=""
+			inputAfterSelect="clear"
 			placeholder={`search and zoom to a city`}
+			limit={5}
 			extract={(item) => item.properties.GEONAME}
-			disable={(item) => /Carolina/.test(item.properties.GEONAME)}
 			on:select={({ detail }) => map.panTo(detail.original.geometry.coordinates)}
-		/>		
-	</div>	
+			let:result
+		>
+		<span id="search-results">{@html result.string}</span>
+		</Typeahead>
+	</div>
 
 
 </div>
@@ -105,10 +108,7 @@
 
 
 <style>
-
-	:global([data-svelte-search] label) {
-		display: none;
-	}
+	
 	
 	@font-face {
 		font-family: TradeGothicBold;
@@ -117,16 +117,28 @@
 	:root {
 		font-family: 'Roboto', sans-serif;
 	}
+	
+	:global([data-svelte-search] label) {
+		display: none;
+	}
+	:global([data-svelte-typeahead] mark)  {
+		color: #1E3765;
+		background-color: #F1C500;
+	}
 	:global(body) {
 		padding: 0px;
 		margin: 0px;
 		background-color: #fff;
 	}
+	#search-results {
+		color: #1E3765;
+		font-family: Roboto, sans-serif;
+	}
 
 	main {
 		margin: auto;
 		width: 100%;
-		background-color: #f4f4f4;
+		background-color: rgb(250, 250, 250);
 	}
 
 	#panel {
