@@ -12,7 +12,7 @@
 		position: fixed;
    		top: 0px;
 		height: 50px;
-		background-color: #ffffff;
+		background-color: #fff;
 		margin-bottom: 20px;
 		border-bottom: 1px solid rgb(219, 219, 219);
 		width: 100%;
