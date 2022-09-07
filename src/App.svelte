@@ -137,7 +137,6 @@
 				<!-- The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss.  -->
 		</p>
 	
-
 		<p>	
 			The area of the circles are proportional to the number of people who moved in or moved out of each neighbourhood.
 		</p>
@@ -146,7 +145,6 @@
 			Click on the map to view numbers for a specific neighbourhood.
 		</p>
 	</div>
-
 
 </div>
 
@@ -197,6 +195,7 @@
 	}
 	#search {
 		position: absolute;
+		width: 300px;
 		top: 55px;
 		right: 5px;
 		z-index: 99;
@@ -293,20 +292,6 @@
 		margin-right: 20px;
 		color: rgb(70, 70, 70);
 	}
-
-	#zoom {
-		height: 50px;
-	}
-
-	#cityZoom {
-		color: #007FA3
-	}
-	#cityZoom:hover {
-		cursor: pointer;
-	}
-
-
-
 
 	#map {
 		margin-top: 50px;
