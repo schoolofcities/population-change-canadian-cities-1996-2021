@@ -2,10 +2,14 @@
 	import { onMount } from 'svelte'
 	import mapboxgl from "mapbox-gl";
 	import Typeahead from "svelte-typeahead";
-	import data from "./lib/cities.js";
+	// import data from "./lib/cities.js";
+	import places from "./assets/places.geo.json";
 	import Circle from "./lib/circle.svelte";
+	import popupContent from "./lib/popupContent.js"
 
 	mapboxgl.accessToken = 'pk.eyJ1Ijoic2Nob29sb2ZjaXRpZXMiLCJhIjoiY2w3aml0dHdlMHlpazNwbWh0em4xOHNlaCJ9.fXNtPGq0DqYiFvPH6p4fjQ';
+
+	const data = places.features;
 
 	let map;
 	
@@ -24,12 +28,19 @@
 		map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 		map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
 
-		map.on('mouseenter', 'ct_boundaries', () => {
+		map.on('mouseenter', 'ct_fill', () => {
 			map.getCanvas().style.cursor = 'pointer';
 		});
-		// map.on('mouseleave', 'ct_boundaries', () => {
-		// 	map.getCanvas().style.cursor = '';
-		// })
+		map.on('mouseleave', 'ct_fill', () => {
+			map.getCanvas().style.cursor = '';
+		})
+
+		map.on('click', 'ct_fill', (e) => {			
+			new mapboxgl.Popup()
+				.setLngLat(e.lngLat)
+				.setHTML(popupContent(e.features[0].properties.CTUID))
+				.addTo(map);
+		});
 
 	});
 
@@ -79,12 +90,11 @@
 			{data}
 			label=""
 			placeholder={`search and zoom to a city`}
-			extract={(item) => item.city}
-			disable={(item) => /Carolina/.test(item.city)}
-			on:select={({ detail }) => map.panTo([detail.original.x,detail.original.y])}
-		/>
+			extract={(item) => item.properties.GEONAME}
+			disable={(item) => /Carolina/.test(item.properties.GEONAME)}
+			on:select={({ detail }) => map.panTo(detail.original.geometry.coordinates)}
+		/>		
 	</div>	
-
 
 
 </div>
