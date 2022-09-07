@@ -11,6 +11,7 @@
 	const data = places.features;
 
 	let map;
+	let ctuid = "0";
 	
 	onMount(() => {
 		map = new mapboxgl.Map({
@@ -34,13 +35,40 @@
 			map.getCanvas().style.cursor = '';
 		})
 
-		map.on('click', 'ct_fill', (e) => {			
-			new mapboxgl.Popup()
-				.setLngLat(e.lngLat)
-				.setHTML(popupContent(e.features[0].properties.CTUID))
-				.addTo(map);
+		map.on('click', 'ct_fill', (e) => {		
+
+			var features = map.queryRenderedFeatures(e.point, { layers: ['ct_fill'] });
+
+			if (ctuid != features[0].properties.CTUID) {
+				var style = [
+					"match",
+					["get", "CTUID"],
+					[features[0].properties.CTUID],
+					"#f1c500",
+					"#fff"
+				]
+				map.setPaintProperty('ct_fill', 'fill-color', style)
+				ctuid = features[0].properties.CTUID
+
+				new mapboxgl.Popup()
+					.setLngLat(e.lngLat)
+					.setHTML(popupContent(ctuid))
+					.addTo(map);
+
+			} else {
+				map.setPaintProperty('ct_fill', 'fill-color', '#fff')
+				ctuid = '0'
+			}
+
+			
+
+			
+
+			console.log(style)
+
 		});
 
+		
 	});
 
 
@@ -71,7 +99,6 @@
 	</div>
 
 	
-
 	<div id="text">
 		<p>
 			<p>Visualizing by neighbourhood census tracts whether the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <b>1996</b> and <b>2021</b>. 
@@ -101,6 +128,8 @@
 
 
 </div>
+
+
 
 <div id="map"></div>
 
