@@ -2,13 +2,13 @@
 	import { onMount } from 'svelte'
 	import mapboxgl from "mapbox-gl";
 	import Typeahead from "svelte-typeahead";
-	import places from "./assets/places.geo.json";
+	import Places from "./assets/places.geo.json";
 	import Circle from "./lib/circle.svelte";
 	import popupContent from "./lib/popupContent.js"
 
 	mapboxgl.accessToken = 'pk.eyJ1Ijoic2Nob29sb2ZjaXRpZXMiLCJhIjoiY2w3aml0dHdlMHlpazNwbWh0em4xOHNlaCJ9.fXNtPGq0DqYiFvPH6p4fjQ';
 
-	const data = places.features;
+	const data = Places.features;
 
 	let map;
 	let ctuid = "0";
@@ -60,12 +60,6 @@
 				ctuid = '0'
 			}
 
-			
-
-			
-
-			console.log(style)
-
 		});
 
 		
@@ -105,11 +99,7 @@
 				<!-- The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss.  -->
 		</p>
 	</div>
-	<!-- <div id="text">
-		<p>	
-			The maps show a general trend of population growth both in the suburban fringes and concentrated in some downtowns, with population decline occurring in many older pre-1996 residential neighbourhoods. But these trends aren't evident everywhere. Click and explore below:
-		</p>
-	</div> -->
+	
 
 	<div id="text">
 		<Typeahead
@@ -124,6 +114,18 @@
 		>
 		<span id="search-results">{@html result.string}</span>
 		</Typeahead>
+	</div>
+
+	<div id="text">
+		<p>	
+			The area of the circles are proportional to the number of people who moved in or moved out of each neighbourhood.
+		</p>
+	</div>
+
+	<div id="text">
+		<p>	
+			Click on the map to view numbers for a specific neighbourhood.
+		</p>
 	</div>
 
 
