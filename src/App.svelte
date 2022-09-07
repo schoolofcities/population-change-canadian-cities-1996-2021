@@ -5,6 +5,7 @@
 	import Places from "./assets/places.geo.json";
 	import Circle from "./lib/circle.svelte";
 	import popupContent from "./lib/popupContent.js"
+	import Top from "./lib/Top.svelte"
 
 	mapboxgl.accessToken = 'pk.eyJ1Ijoic2Nob29sb2ZjaXRpZXMiLCJhIjoiY2w3aml0dHdlMHlpazNwbWh0em4xOHNlaCJ9.fXNtPGq0DqYiFvPH6p4fjQ';
 
@@ -93,6 +94,8 @@
 
 <main>
 
+<Top/>
+
 <div id="map"></div>
 
 
@@ -125,7 +128,7 @@
 	</div>
 
 	<div id="more-less" on:click={hideShow}>
-		<p>Read More</p>
+		<p>▼ read more ▼</p>
 	</div>
 	
 	<div id="text">
@@ -194,7 +197,7 @@
 	}
 	#search {
 		position: absolute;
-		top: 5px;
+		top: 55px;
 		right: 5px;
 		z-index: 99;
 		opacity: 0.93;
@@ -214,7 +217,7 @@
 	#panel {
 		margin: auto;
 		width: 385px;
-		height: 150px;
+		height: 142px;
 		border-right: solid 1px #1E3765;
 		border-top: solid 1px #1E3765;
 		border-top-right-radius: 25px;
@@ -264,10 +267,11 @@
 		padding-left: 20px;
 		padding-right: 20px;
 		border-top: solid 1px #1E3765;
-		border-bottom: solid 1px #1E3765;
+		/* border-bottom: solid 1px #1E3765; */
 		font-family: Roboto, sans-serif;
 		font-size: 12px;
-		background-color: #fff;
+		background-color: rgb(225, 225, 225);
+		text-align: center;
 	}
 	#more-less:hover {
 		cursor: pointer;
@@ -275,9 +279,8 @@
 	}
 
 	#more-less p {
-		color: rgb(70, 70, 70);
+		color: #1E3765;
 		font-family: Roboto, sans-serif;
-		
 		padding: 0px;
 		margin: 0px;
 	}
@@ -306,7 +309,8 @@
 
 
 	#map {
-		height: 100vh;
+		margin-top: 50px;
+		height: calc(100vh - 50px);
 		width: 100%;
 		top: 0;
         left: 0;
