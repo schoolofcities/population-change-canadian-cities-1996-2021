@@ -7,6 +7,7 @@ function popupContent(ctuid) {
     var pop96 = data.properties.pop96;
     console.log(pop21, pop96);
     var html = 
+
     "<p>2021 Population: <b>" + pop21 + "</b></p>" + 
     "<p>1996 Population: <b>" + pop96 + "</b></p>" +
     "<p>Difference: <b>" + (pop21 - pop96) + "</b></p>" 

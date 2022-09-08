@@ -7,8 +7,8 @@
    viewBox="0 0 105.83333 26.458334"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    sodipodi:docname="legend.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -28,9 +28,9 @@
      showguides="true"
      inkscape:snap-grids="true"
      inkscape:snap-bbox="true"
-     inkscape:zoom="1"
-     inkscape:cx="180"
-     inkscape:cy="204.5"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="75.660426"
+     inkscape:cy="90.863221"
      inkscape:window-width="1920"
      inkscape:window-height="1016"
      inkscape:window-x="0"
@@ -87,13 +87,13 @@
     <text
        xml:space="preserve"
        style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;fill:#666666;fill-opacity:1;stroke-width:0.264583"
-       x="65.093445"
+       x="76.941559"
        y="22.588161"
        id="text25871"><tspan
          sodipodi:role="line"
          id="tspan25869"
          style="fill:#666666;fill-opacity:1;stroke-width:0.264583"
-         x="65.093445"
+         x="76.941559"
          y="22.588161">Growth</tspan></text>
     <text
        xml:space="preserve"
@@ -142,13 +142,13 @@
     <text
        xml:space="preserve"
        style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;fill:#666666;fill-opacity:1;stroke-width:0.264583"
-       x="44.452858"
+       x="33.00317"
        y="22.64887"
        id="text25871-7"><tspan
          sodipodi:role="line"
          id="tspan25869-4"
          style="fill:#666666;fill-opacity:1;stroke-width:0.264583"
-         x="44.452858"
+         x="33.00317"
          y="22.64887">Decline</tspan></text>
     <text
        xml:space="preserve"
@@ -165,7 +165,17 @@
          style="fill:#666666;fill-opacity:1;stroke-width:0.264583"
          x="3.588311"
          y="11.63999"
-         id="tspan46409">Change</tspan></text>
+         id="tspan46409">Change </tspan><tspan
+         sodipodi:role="line"
+         style="fill:#666666;fill-opacity:1;stroke-width:0.264583"
+         x="3.588311"
+         y="16.931652"
+         id="tspan75253">1996 to </tspan><tspan
+         sodipodi:role="line"
+         style="fill:#666666;fill-opacity:1;stroke-width:0.264583"
+         x="3.588311"
+         y="22.223314"
+         id="tspan75255">2021</tspan></text>
     <path
        style="fill:none;stroke:#666666;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 73.313019,6.8146853 H 91.833852"

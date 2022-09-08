@@ -13,6 +13,8 @@
 
 	let map;
 	let ctuid = "0";
+	let pop21 = 0;
+	let pop96 = 0;
 	
 	onMount(() => {
 		map = new mapboxgl.Map({
@@ -89,6 +91,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
+	<link href='popupStyle.css' rel='stylesheet' />
 </svelte:head>
 
 
@@ -133,7 +136,7 @@
 	
 	<div id="text">
 		<p>
-			<p>Visualizing by neighbourhood census tracts whether the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <b>1996</b> and <b>2021</b>. 
+			<p> Visualizing by neighbourhood census tracts whether the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <b>1996</b> and <b>2021</b>. 
 				<!-- The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss.  -->
 		</p>
 	
@@ -145,6 +148,16 @@
 			Click on the map to view numbers for a specific neighbourhood.
 		</p>
 	</div>
+
+</div>
+
+
+
+
+<div id="select">
+
+	<p id="mini">{ctuid}</p>
+	<p>Population 2021: </p>
 
 </div>
 
@@ -164,6 +177,13 @@
 	}
 	:root {
 		font-family: 'Roboto', sans-serif;
+	}
+
+
+	main {
+		margin: auto;
+		width: 100%;
+		margin-bottom: -15px;
 	}
 
 
@@ -205,13 +225,7 @@
 
 
 
-	main {
-		margin: auto;
-		width: 100%;
-		margin-bottom: -15px;
-
-		/* position: relative; */
-	}
+	
 
 	#panel {
 		margin: auto;
@@ -238,7 +252,7 @@
 	}
 
 	#title h1 {
-		font-family: TradeGothicBold, sans-serif;
+		font-family: Roboto, sans-serif;
 		font-size: 20px;
 		color: #1E3765
 	}
@@ -293,6 +307,21 @@
 		color: rgb(70, 70, 70);
 	}
 
+
+
+	#select {
+		position: absolute;
+		width: 300px;
+		background-color: beige;
+		top: 105px;
+		right: 5px;
+		z-index: 99;
+		opacity: 0.93;
+	}
+
+
+
+
 	#map {
 		margin-top: 50px;
 		height: calc(100vh - 50px);
@@ -303,5 +332,6 @@
 		z-index: -99;
 	}
 
+	
 	
 </style>
