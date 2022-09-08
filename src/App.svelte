@@ -4,7 +4,7 @@
 	import Typeahead from "svelte-typeahead";
 	import Places from "./assets/places.geo.json";
 	import Circle from "./lib/circle.svelte";
-	import popupContent from "./lib/popupContent.js"
+	import Select from "./lib/Select.svelte"
 	import Top from "./lib/Top.svelte"
 
 	mapboxgl.accessToken = 'pk.eyJ1Ijoic2Nob29sb2ZjaXRpZXMiLCJhIjoiY2w3aml0dHdlMHlpazNwbWh0em4xOHNlaCJ9.fXNtPGq0DqYiFvPH6p4fjQ';
@@ -59,10 +59,10 @@
 				map.setPaintProperty('ct_fill', 'fill-color', style)
 				ctuid = features[0].properties.CTUID
 
-				new mapboxgl.Popup()
-					.setLngLat(e.lngLat)
-					.setHTML(popupContent(ctuid))
-					.addTo(map);
+				// new mapboxgl.Popup()
+				// 	.setLngLat(e.lngLat)
+				// 	.setHTML(popupContent(ctuid))
+				// 	.addTo(map);
 
 			} else {
 				map.setPaintProperty('ct_fill', 'fill-color', '#fff')
@@ -118,6 +118,8 @@
 </div>
 
 
+<Select ctuid={ctuid}/>
+
 
 <div id="panel">
 
@@ -154,12 +156,6 @@
 
 
 
-<div id="select">
-
-	<p id="mini">{ctuid}</p>
-	<p>Population 2021: </p>
-
-</div>
 
 
 
@@ -309,15 +305,6 @@
 
 
 
-	#select {
-		position: absolute;
-		width: 300px;
-		background-color: beige;
-		top: 105px;
-		right: 5px;
-		z-index: 99;
-		opacity: 0.93;
-	}
 
 
 
