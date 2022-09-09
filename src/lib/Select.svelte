@@ -1,13 +1,59 @@
 <script>
+    import ct from "../assets/ct-pts.geo.json";
+
     export let ctuid;
+
+    let pop21 = 0;
+    let pop96 = 0;
+    let radius = 1;
+    let stroke = "#fff";
+    let fill = "#fff";
+
+    $: data = ct.features.filter(ct => ct.properties.ctuid === ctuid)[0];
+    $: console.log(data);
+
+    $: if (ctuid !== "0") {
+        console.log("meow")
+        // var data = ct.features.filter(ct => ct.properties.ctuid === ctuid)[0];
+        pop21 = data.properties.pop21;
+        pop96 = data.properties.pop96;
+        if (pop21 > pop96) {
+            radius = 1 + 2 * ((pop21 - pop96) / 250)
+            stroke = '#007fa3'
+            fill = '#6fc7ea'
+        } 
+        else if (pop96 > pop21) {
+            radius = 1 + 2 * ((pop96 - pop21) / 250)
+            stroke = '#dc4633'
+            fill = '#ff5842'
+        } else {
+            console.log("no data")
+        }
+    } else {
+        pop21 = 0;
+        pop96 = 0;
+    }
+    
+    
 </script>
 
 
-<div id="select">
+<div id="select" class="{ctuid !== "0" ? 'show' : 'empty'}">
 	<div id="yellow"></div>
-	<p>Selected Census Tract: {ctuid}</p>
-	<p>Population 2021: </p>
-	<p>Population 1996: </p>
+
+    <div id="info">
+        <div id="circle">
+            <svg width="60" height="60">
+                <rect width="60" height="60" style="fill-opacity:1; stroke-width:2; stroke:#8d6d6d; fill:#fff" />
+                <circle cx="30" cy="30" r={radius} stroke-width="1" stroke={stroke} fill={fill} />
+            </svg>            
+        </div>
+        <div id="data">
+            <p>Census Tract: {ctuid}</p>
+            <p>Population 2021: {pop21}</p>
+            <p>Population 1996: {pop96}</p>
+        </div>
+    </div>
 </div>
 
 
@@ -24,13 +70,8 @@
 		z-index: 1;
 		opacity: 0.93;
 	}
-	#yellow {
-		width: 100%;
-		height: 3px;
-		padding-top: 4px;
-		background-color: #F1C500;
-	}
-	#select p {
+    .empty {display:none}
+    #select p {
 		/* margin-top: 5px; */
 		padding-left: 10px;
 		color: rgb(70, 70, 70);
@@ -38,4 +79,18 @@
 		font-size: 13px;
 		line-height: 0.75;
 	}
+	#yellow {
+		width: 100%;
+		height: 3px;
+		padding-top: 4px;
+		background-color: #F1C500;
+	}
+	#circle {
+        float:left;
+        height: 60px;
+        width: 60px;
+        background-color: red;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 </style>
