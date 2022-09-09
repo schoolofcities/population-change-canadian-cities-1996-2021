@@ -211,7 +211,7 @@
 	}
 	#search {
 		position: absolute;
-		width: 300px;
+		width: 250px;
 		top: 55px;
 		right: 5px;
 		z-index: 99;

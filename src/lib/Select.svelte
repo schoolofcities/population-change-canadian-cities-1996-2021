@@ -1,4 +1,5 @@
 <script>
+
     import ct from "../assets/ct-pts.geo.json";
 
     export let ctuid;
@@ -18,12 +19,12 @@
         pop21 = data.properties.pop21;
         pop96 = data.properties.pop96;
         if (pop21 > pop96) {
-            radius = 1 + 2 * ((pop21 - pop96) / 250)
+            radius = 1 + 2 * ((pop21 - pop96) / 250) ** 0.5
             stroke = '#007fa3'
             fill = '#6fc7ea'
         } 
         else if (pop96 > pop21) {
-            radius = 1 + 2 * ((pop96 - pop21) / 250)
+            radius = 1 + 2 * ((pop96 - pop21) / 250) ** 0.5
             stroke = '#dc4633'
             fill = '#ff5842'
         } else {
@@ -33,8 +34,7 @@
         pop21 = 0;
         pop96 = 0;
     }
-    
-    
+
 </script>
 
 
@@ -49,9 +49,10 @@
             </svg>            
         </div>
         <div id="data">
-            <p>Census Tract: {ctuid}</p>
             <p>Population 2021: {pop21}</p>
             <p>Population 1996: {pop96}</p>
+            <p>Difference: {pop21 - pop96}</p>
+
         </div>
     </div>
 </div>
@@ -61,7 +62,7 @@
 <style>
     #select {
 		position: absolute;
-		width: 295px;
+		width: 245px;
 		background-color: #fff;
 		border: solid 2px rgb(225, 225, 225);
 		border-radius: 4px;
@@ -92,5 +93,9 @@
         background-color: red;
         margin-left: 10px;
         margin-right: 10px;
+    }
+    #data {
+        text-align: right;
+        margin-right: 20px;
     }
 </style>
