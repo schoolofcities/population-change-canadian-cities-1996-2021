@@ -13,8 +13,6 @@
 
 	let map;
 	let ctuid = "0";
-
-	let panel = false;
 	
 	onMount(() => {
 		map = new mapboxgl.Map({
@@ -25,12 +23,16 @@
 			maxZoom: 12,
 			minZoom: 9,
 			projection: 'globe',
-			scrollZoom: true
+			scrollZoom: true,
+			attributionControl: false
 		});
 		
-		map.addControl(new mapboxgl.FullscreenControl(), 'top-left');
-		map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 		
+		map.addControl(new mapboxgl.AttributionControl({
+			customAttribution: 'Map by Jeff Allen'
+		}), 'bottom-right');
+		map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
 		const scale = new mapboxgl.ScaleControl({
 			maxWidth: 100,
 			unit: 'metric'
@@ -182,9 +184,9 @@
 	}
 	#search {
 		position: absolute;
-		width: 250px;
-		top: 55px;
-		right: 5px;
+		width: 260px;
+		top: 62px;
+		left: 5px;
 		z-index: 99;
 		opacity: 0.93;
 	}

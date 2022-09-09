@@ -12,7 +12,7 @@
 
     $: data = ct.features.filter(ct => ct.properties.ctuid === ctuid)[0];
 
-    $: if (ctuid !== "0") {
+    $: if (data) {
         pop21 = data.properties.pop21;
         pop96 = data.properties.pop96;
         if (pop21 > pop96) {
@@ -42,13 +42,19 @@
         <div id="circle">
             <svg width="60" height="60">
                 <rect width="60" height="60" style="fill-opacity:1; stroke-width:2; stroke:#8d6d6d; fill:#F1C500" />
+                {#if data}
                 <circle cx="30" cy="30" r={radius} stroke-width="1" stroke={stroke} fill={fill} />
+                {/if}
             </svg>            
         </div>
         <div id="data">
-            <p>Population 2021: <span id="bold">{pop21.toLocaleString("en-US")}</span></p>
-            <p>Population 1996: <span id="bold">{pop96.toLocaleString("en-US")}</span></p>
-            <p>Difference: <span id="bold">{(pop21 - pop96).toLocaleString("en-US")}</span></p>
+            {#if data}
+                <p>Population 2021: <span id="bold">{pop21.toLocaleString("en-US")}</span></p>
+                <p>Population 1996: <span id="bold">{pop96.toLocaleString("en-US")}</span></p>
+                <p>Difference: <span id="bold">{(pop21 - pop96).toLocaleString("en-US")}</span></p>
+            {:else}
+                <p>Missing data</p>
+            {/if}
 
         </div>
     </div>
@@ -59,12 +65,13 @@
 <style>
     #select {
 		position: absolute;
-		width: 245px;
+		width: 255px;
+        height: 90px;
 		background-color: #fff;
 		border: solid 2px rgb(225, 225, 225);
 		border-radius: 4px;
-		top: 97px;
-		right: 6px;
+		top: 107px;
+		left: 6px;
 		z-index: 1;
 		opacity: 0.93;
 	}
@@ -87,7 +94,7 @@
         height: 60px;
         width: 60px;
         background-color: red;
-        margin-left: 10px;
+        margin-left: 15px;
         margin-right: 10px;
     }
     #data {

@@ -8,7 +8,6 @@
 
 
 
-
 <div id="panel">
 
 	<div id="title">
@@ -42,7 +41,6 @@
 </div>
 
 
-
 <style>
     #panel {
 		margin: auto;
@@ -55,9 +53,9 @@
 		z-index: 99;
 		background-color: rgb(250, 250, 250);
 		bottom: 0;
+        left: 0;
 		position: absolute;
-		opacity: 0.9
-		/* display: none; */
+		opacity: 0.9;
 	}
 
 	#title {
@@ -97,7 +95,6 @@
 		padding-left: 20px;
 		padding-right: 20px;
 		border-top: solid 1px #1E3765;
-		/* border-bottom: solid 1px #1E3765; */
 		font-family: Roboto, sans-serif;
 		font-size: 12px;
 		background-color: rgb(225, 225, 225);
