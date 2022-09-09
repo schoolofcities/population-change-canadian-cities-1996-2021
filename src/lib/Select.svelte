@@ -11,11 +11,8 @@
     let fill = "#fff";
 
     $: data = ct.features.filter(ct => ct.properties.ctuid === ctuid)[0];
-    $: console.log(data);
 
     $: if (ctuid !== "0") {
-        console.log("meow")
-        // var data = ct.features.filter(ct => ct.properties.ctuid === ctuid)[0];
         pop21 = data.properties.pop21;
         pop96 = data.properties.pop96;
         if (pop21 > pop96) {
@@ -44,14 +41,14 @@
     <div id="info">
         <div id="circle">
             <svg width="60" height="60">
-                <rect width="60" height="60" style="fill-opacity:1; stroke-width:2; stroke:#8d6d6d; fill:#fff" />
+                <rect width="60" height="60" style="fill-opacity:1; stroke-width:2; stroke:#8d6d6d; fill:#F1C500" />
                 <circle cx="30" cy="30" r={radius} stroke-width="1" stroke={stroke} fill={fill} />
             </svg>            
         </div>
         <div id="data">
-            <p>Population 2021: {pop21}</p>
-            <p>Population 1996: {pop96}</p>
-            <p>Difference: {pop21 - pop96}</p>
+            <p>Population 2021: <span id="bold">{pop21.toLocaleString("en-US")}</span></p>
+            <p>Population 1996: <span id="bold">{pop96.toLocaleString("en-US")}</span></p>
+            <p>Difference: <span id="bold">{(pop21 - pop96).toLocaleString("en-US")}</span></p>
 
         </div>
     </div>
@@ -73,7 +70,6 @@
 	}
     .empty {display:none}
     #select p {
-		/* margin-top: 5px; */
 		padding-left: 10px;
 		color: rgb(70, 70, 70);
 		font-family: Roboto, sans-serif;
@@ -97,5 +93,9 @@
     #data {
         text-align: right;
         margin-right: 20px;
+    }
+    #bold {
+        font-weight: bold;
+        color: black;
     }
 </style>

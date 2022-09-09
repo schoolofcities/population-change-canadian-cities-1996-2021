@@ -13,8 +13,6 @@
 
 	let map;
 	let ctuid = "0";
-	let pop21 = 0;
-	let pop96 = 0;
 	
 	onMount(() => {
 		map = new mapboxgl.Map({
@@ -78,6 +76,8 @@
 	}
 
 	function placeClick(city) {
+		ctuid = "0";
+		map.setPaintProperty('ct_fill', 'fill-color', '#fff');
 		map.panTo(city.original.geometry.coordinates);
 	}
 
