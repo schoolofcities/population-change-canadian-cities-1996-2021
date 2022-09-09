@@ -3,7 +3,7 @@
 	import mapboxgl from "mapbox-gl";
 	import Typeahead from "svelte-typeahead";
 	import Places from "./assets/places.geo.json";
-	import Circle from "./lib/circle.svelte";
+	import Info from "./lib/Info.svelte";
 	import Select from "./lib/Select.svelte"
 	import Top from "./lib/Top.svelte"
 
@@ -13,6 +13,8 @@
 
 	let map;
 	let ctuid = "0";
+
+	let panel = false;
 	
 	onMount(() => {
 		map = new mapboxgl.Map({
@@ -71,9 +73,7 @@
 
 	});
 
-	function hideShow() {
-		console.log("meow")
-	}
+	
 
 	function placeClick(city) {
 		ctuid = "0";
@@ -101,7 +101,6 @@
 
 <div id="map"></div>
 
-
 <div id="search">
 	<Typeahead
 			{data}
@@ -117,41 +116,13 @@
 	</Typeahead>
 </div>
 
-
 <Select ctuid={ctuid}/>
 
+<Info/>
 
-<div id="panel">
 
-	<div id="title">
-		<h1>25 Years of Population Growth & Decline in Canadian Cities</h1>
 
-		<p>
-			<p>Visualizing by neighbourhood census tracts how the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <span id="bold">1996</span> and <span id="bold">2021</span>. 
 
-		</p>
-	</div>
-
-	<div id="more-less" on:click={hideShow}>
-		<p>▼ read more ▼</p>
-	</div>
-	
-	<div id="text">
-		<p>
-			<p> Visualizing by neighbourhood census tracts whether the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <b>1996</b> and <b>2021</b>. 
-				<!-- The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss.  -->
-		</p>
-	
-		<p>	
-			The area of the circles are proportional to the number of people who moved in or moved out of each neighbourhood.
-		</p>
-	
-		<p>	
-			Click on the map to view numbers for a specific neighbourhood.
-		</p>
-	</div>
-
-</div>
 
 
 
@@ -217,95 +188,6 @@
 		z-index: 99;
 		opacity: 0.93;
 	}
-
-
-
-
-	
-
-	#panel {
-		margin: auto;
-		width: 385px;
-		height: 142px;
-		border-right: solid 1px #1E3765;
-		border-top: solid 1px #1E3765;
-		border-top-right-radius: 25px;
-		float: left;
-		z-index: 99;
-		background-color: rgb(250, 250, 250);
-		bottom: 0;
-		position: absolute;
-		opacity: 0.9
-		/* display: none; */
-	}
-
-	#title {
-		max-width: 600px;
-		margin-left: 20px;
-		margin-right: 20px;
-		padding-bottom: 8px;
-		margin-bottom: 0px;
-	}
-
-	#title h1 {
-		font-family: Roboto, sans-serif;
-		font-size: 20px;
-		color: #1E3765
-	}
-
-	#title p {
-		margin-top: -5px;
-		color: rgb(70, 70, 70);
-		font-family: Roboto, sans-serif;
-		font-size: 12px;
-		line-height: 1.75;
-	}
-
-	#bold {
-		color: black;
-		font-weight: bold;
-		font-size: 14px;
-	}
-
-	#more-less {
-		height: 20px;
-		margin: 0px;
-		padding: 0px;
-		padding-bottom: -5px;		
-		margin-top: -15px;
-		padding-left: 20px;
-		padding-right: 20px;
-		border-top: solid 1px #1E3765;
-		/* border-bottom: solid 1px #1E3765; */
-		font-family: Roboto, sans-serif;
-		font-size: 12px;
-		background-color: rgb(225, 225, 225);
-		text-align: center;
-	}
-	#more-less:hover {
-		cursor: pointer;
-		background-color: #F1C500;
-	}
-
-	#more-less p {
-		color: #1E3765;
-		font-family: Roboto, sans-serif;
-		padding: 0px;
-		margin: 0px;
-	}
-
-	#text {
-		display: none;
-		max-width: 600px;
-		line-height: 1.5;
-		margin-left: 20px;
-		margin-right: 20px;
-		color: rgb(70, 70, 70);
-	}
-
-
-
-
 
 
 
