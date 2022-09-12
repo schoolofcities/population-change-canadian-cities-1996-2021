@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<div id="legend">
 <svg
    version="1.1"
    id="svg824"
@@ -14,55 +15,55 @@
      id="path43227" />
   <path
      style="fill:none;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 126.65747,37.569876 h 45"
+     d="m 126.65747,34.569876 h 42"
      id="path43227-7" />
   <path
      style="fill:none;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 126.65747,20.176208 h 60.53852"
+     d="m 126.65747,17.176208 h 60.53852"
      id="path43227-7-8" />
   <ellipse
      style="fill:#ff5842;fill-opacity:1;stroke:#dc4633;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path1150-0"
      cx="192.69804"
-     cy="32.8839"
-     rx="12.711753"
-     ry="12.711755" />
+     cy="31"
+     rx="13.649"
+     ry="12.649" />
   <ellipse
      style="fill:#ff5842;fill-opacity:1;stroke:#dc4633;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path1150-3"
-     cx="175.24858"
-     cy="41.540066"
-     rx="4.1436467"
-     ry="4.1436472" />
+     cx="173.24858"
+     cy="39"
+     rx="5"
+     ry="5" />
   <text
      xml:space="preserve"
-     style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;fill:#333333"
+     style="font-size:13px;line-height:1.25;font-family: Roboto, sans-serif;fill:#333333"
      x="120.15823"
      y="18.992764"
-     id="text2900"><tspan
+     id="text"><tspan
        x="120.15823"
-       y="18.992764"
-       id="tspan18534"
+       y="16"
+       id="text"
        style="font-size:13.3333px;fill:#333333">-10,000</tspan></text>
   <text
      xml:space="preserve"
-     style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;fill:#333333"
+     style="font-size:13px;line-height:1.25;font-family:Roboto, sans-serif;fill:#333333"
      x="119.99829"
      y="36.236786"
-     id="text2900-4-4"><tspan
+     id="text"><tspan
        x="119.99829"
-       y="36.236786"
-       id="tspan18534-4-4"
+       y="33"
+       id="text"
        style="font-size:13.3333px;fill:#333333">-1,000</tspan></text>
   <text
      xml:space="preserve"
-     style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;fill:#333333"
+     style="font-size:13px;line-height:1.25;font-family:Roboto,sans-serif;fill:#333333"
      x="0.1969825"
      y="19.001583"
      id="text2900-9"><tspan
-       x="0.1969825"
-       y="19.001583"
-       id="tspan18534-6"
+       x="10.1969825"
+       y="16"
+       id="text"
        style="font-size:13.3333px;fill:#333333">POP21 - POP96 = </tspan></text>
   <path
      style="fill:none;stroke:#ececec;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -70,48 +71,56 @@
      id="path43227-5" />
   <path
      style="fill:none;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 227.19599,37.569876 h 45"
+     d="m 227.19599,34.569876 h 42"
      id="path43227-7-7" />
   <path
      style="fill:none;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 227.19599,20.176208 h 60"
+     d="m 227.19599,17.176208 h 60"
      id="path43227-7-8-4" />
   <ellipse
      style="fill:#6fc7ea;fill-opacity:1;stroke:#007fa3;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path1150-0-1"
      cx="293.23657"
-     cy="32.8839"
-     rx="12.711753"
-     ry="12.711755" />
+     cy="31"
+     rx="13.649"
+     ry="13.649" />
   <ellipse
      style="fill:#6fc7ea;fill-opacity:1;stroke:#007fa3;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path1150-3-8"
-     cx="275.78711"
-     cy="41.540066"
-     rx="4.1436467"
-     ry="4.1436472" />
+     cx="273.78711"
+     cy="39"
+     rx="5"
+     ry="5" />
   <text
      xml:space="preserve"
-     style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;fill:#333333"
+     style="font-size:13px;line-height:1.25;font-family:Roboto, sans-serif; fill:#333333"
      x="214.40622"
      y="18.992765"
-     id="text2900-5"><tspan
-       x="214.40622"
-       y="18.992765"
-       id="tspan18534-9"
-       style="font-size:13.3333px;fill:#333333">+10,000</tspan></text>
+     id="text"><tspan
+       x="217.40622"
+       y="16"
+       >+10,000</tspan></text>
   <text
      xml:space="preserve"
-     style="font-size:13.3333px;line-height:1.25;font-family:sans-serif;fill:#333333"
-     x="214.44501"
+     style="font-size:13px;line-height:1.25;font-family:Roboto, sans-serif;fill:#333333"
+     x="21.44501"
      y="36.236786"
-     id="text2900-4-4-75"><tspan
-       x="214.44501"
-       y="36.236786"
-       id="tspan18534-4-4-3"
-       style="font-size:13.3333px;fill:#333333">+1,000</tspan></text>
-  <path
-     style="fill:none;stroke:#e6e6e6;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="M 0,0.5 H 310"
-     id="path69244" />
+     id="text"><tspan
+       x="217.44501"
+       y="33"
+       id="text"
+       >+1,000</tspan></text>
 </svg>
+</div>
+
+<div id="meow"></div>
+
+<style>
+    #legend {
+        margin-top: -10px;
+        margin-bottom: 10px;
+        margin-left: -10px;
+        height: 50px;
+    }
+</style>
+

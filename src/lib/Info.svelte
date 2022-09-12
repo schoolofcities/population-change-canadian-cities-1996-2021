@@ -1,6 +1,6 @@
 <script>
     import Circle from "./circle.svelte";
-    import legend from "../assets/legend.svg"
+    import Legend from "./Legend.svelte";
     function hideShow() {
 		console.log("meow")
 	}
@@ -25,7 +25,8 @@
 			The area of the circles are proportional to the number of people who moved in or moved out of each neighbourhood. Click on the map to show specific statistics.
 		</p> -->
 
-        <img src={legend} alt="School of Cities">
+        <Legend/>
+        <!-- <img src={legend} alt="School of Cities"> -->
         
 	</div>
 
