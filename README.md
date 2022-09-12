@@ -1,6 +1,6 @@
-# population-change-canadian-cities-1996-2021
+## Population Change in Canadian Cities (1996 to 2021)
 
-25 Years of Population Growth & Decline in Canadian Cities
+### Mapping 25 Years of Population Growth and Decline in Canadian Urban Regions
 
-(1996 to 2021)
+![maps](./src/assets/web-card.png)
 
