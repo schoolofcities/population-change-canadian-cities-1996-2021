@@ -15,7 +15,6 @@
 	let ctuid = "0";
 
 	let pageWidth;
-	$: console.log(pageWidth);
 	
 	onMount(() => {
 		map = new mapboxgl.Map({
@@ -121,7 +120,7 @@
 
 <Select ctuid={ctuid}/>
 
-<Info/>
+<Info pageWidth={pageWidth}/>
 
 
 
@@ -217,7 +216,7 @@
 	}
 
 	.maps-small {
-		height: calc(100vh - 392px);
+		height: calc(100vh - 255px - 50px);
 	}
 
 	

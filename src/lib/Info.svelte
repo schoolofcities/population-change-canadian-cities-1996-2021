@@ -4,11 +4,14 @@
     function hideShow() {
 		console.log("meow")
 	}
+
+    export let pageWidth;
+
 </script>
 
 
 
-<div id="panel">
+<div id="panel" class="{pageWidth < 755 ? 'mobile' : 'web'}">
 
 	<div id="title">
 		<h1>25 Years of Population Growth & Decline in Canadian Cities</h1>
@@ -46,11 +49,8 @@
 <style>
     #panel {
 		margin: auto;
-		width: 335px;
-		height: 255px;
-		border-right: solid 1px #1E3765;
+        height: 255px;
 		border-top: solid 1px #1E3765;
-		border-top-right-radius: 25px;
 		float: left;
 		z-index: 99;
 		background-color: rgb(250, 250, 250);
@@ -59,9 +59,20 @@
 		position: absolute;
 		opacity: 0.9;
 	}
+    .mobile {
+        width: 100%;
+        border-top-right-radius: 0px;
+        border-right: none;
+    }
+    .web {
+        width: 335px;
+        height: 255px;
+		border-right: solid 1px #1E3765;
+		border-top-right-radius: 25px;
+    }
 
 	#title {
-		max-width: 600px;
+		max-width: 550px;
 		margin-left: 20px;
 		margin-right: 20px;
 		padding-bottom: 8px;
@@ -97,6 +108,7 @@
 		padding-left: 20px;
 		padding-right: 20px;
 		border-top: solid 1px #1E3765;
+        border-bottom: solid 1px #1E3765;
 		font-family: Roboto, sans-serif;
 		font-size: 12px;
 		background-color: rgb(225, 225, 225);
