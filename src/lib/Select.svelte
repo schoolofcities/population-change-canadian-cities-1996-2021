@@ -32,6 +32,8 @@
         pop96 = 0;
     }
 
+    $: console.log(radius)
+
 </script>
 
 

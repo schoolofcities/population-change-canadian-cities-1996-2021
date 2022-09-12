@@ -13,6 +13,9 @@
 
 	let map;
 	let ctuid = "0";
+
+	let pageWidth;
+	$: console.log(pageWidth);
 	
 	onMount(() => {
 		map = new mapboxgl.Map({
@@ -61,11 +64,6 @@
 				map.setPaintProperty('ct_fill', 'fill-color', style)
 				ctuid = features[0].properties.CTUID
 
-				// new mapboxgl.Popup()
-				// 	.setLngLat(e.lngLat)
-				// 	.setHTML(popupContent(ctuid))
-				// 	.addTo(map);
-
 			} else {
 				map.setPaintProperty('ct_fill', 'fill-color', '#fff')
 				ctuid = '0'
@@ -101,7 +99,10 @@
 
 <Top/>
 
-<div id="map"></div>
+<div id='map-wrapper' class="{pageWidth < 755 ? 'maps-small' : 'maps-big'}" >
+	<!-- class="{pageWidth < 755 ? 'maps-small' : 'maps-big'}" -->
+<div id="map" bind:offsetWidth={pageWidth} ></div>
+</div>
 
 <div id="search">
 	<Typeahead
@@ -191,16 +192,32 @@
 		opacity: 0.93;
 	}
 
-
-
-	#map {
+	#map-wrapper {
 		margin-top: 50px;
-		height: calc(100vh - 50px);
+		/*  height: calc(100vh - 50px); */
 		width: 100%;
 		top: 0;
         left: 0;
 		position: absolute;
 		z-index: -99;
+	}
+
+	#map {
+		/* margin-top: 50px; */
+		height: 100%;
+		width: 100%;
+		top: 0;
+        left: 0;
+		position: absolute;
+		z-index: -99;
+	}
+
+	.maps-big {
+		height: calc(100vh - 50px);
+	}
+
+	.maps-small {
+		height: calc(100vh - 392px);
 	}
 
 	

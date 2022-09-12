@@ -1,6 +1,6 @@
 <script>
     import Circle from "./circle.svelte";
-
+    import legend from "../assets/legend.svg"
     function hideShow() {
 		console.log("meow")
 	}
@@ -14,19 +14,28 @@
 		<h1>25 Years of Population Growth & Decline in Canadian Cities</h1>
 
 		<p>
-			<p>Visualizing by neighbourhood census tracts how the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <span id="bold">1996</span> and <span id="bold">2021</span>. 
+			<p>Visualizing by neighbourhood census tracts how the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <span id="bold">1996</span> and <span id="bold">2021</span>. The area of the circles are proportional to the number of people who moved in or moved out of each neighbourhood.
 
 		</p>
+        <!-- <p>
+			The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss. 
+		</p> -->
+	
+		<!-- <p>	
+			The area of the circles are proportional to the number of people who moved in or moved out of each neighbourhood. Click on the map to show specific statistics.
+		</p> -->
+
+        <img src={legend} alt="School of Cities">
+        
 	</div>
 
 	<div id="more-less" on:click={hideShow}>
-		<p>▼ read more ▼</p>
+		<p>click here to read more</p>
 	</div>
 	
-	<div id="text">
+	<!-- <div id="text">
 		<p>
-			<p> Visualizing by neighbourhood census tracts whether the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <b>1996</b> and <b>2021</b>. 
-				<!-- The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss.  -->
+			The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss. 
 		</p>
 	
 		<p>	
@@ -34,9 +43,9 @@
 		</p>
 	
 		<p>	
-			Click on the map to view numbers for a specific neighbourhood.
+			Click on the map to view numbers for a specific neighbourhood. 
 		</p>
-	</div>
+	</div> -->
 
 </div>
 
@@ -44,8 +53,8 @@
 <style>
     #panel {
 		margin: auto;
-		width: 385px;
-		height: 142px;
+		width: 335px;
+		height: 255px;
 		border-right: solid 1px #1E3765;
 		border-top: solid 1px #1E3765;
 		border-top-right-radius: 25px;
@@ -112,13 +121,22 @@
 		margin: 0px;
 	}
 
+    img {
+        padding: 0px;
+        margin: 0px;
+        margin-top: -10px;
+        margin-bottom: 6px;
+        /* background-color: black; */
+    }
+
 	#text {
-		display: none;
-		height: 500px;
+		/* display: none; */
+		/* height: 500px; */
 		max-width: 600px;
 		line-height: 1.5;
 		margin-left: 20px;
 		margin-right: 20px;
 		color: rgb(70, 70, 70);
+        font-size: 12px;
 	}
 </style>
