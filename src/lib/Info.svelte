@@ -17,16 +17,8 @@
 			<p>Visualizing by neighbourhood census tracts how the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <span id="bold">1996</span> and <span id="bold">2021</span>. The area of the circles are proportional to the number of people who moved in or moved out of each neighbourhood.
 
 		</p>
-        <!-- <p>
-			The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss. 
-		</p> -->
-	
-		<!-- <p>	
-			The area of the circles are proportional to the number of people who moved in or moved out of each neighbourhood. Click on the map to show specific statistics.
-		</p> -->
 
         <Legend/>
-        <!-- <img src={legend} alt="School of Cities"> -->
         
 	</div>
 
@@ -122,22 +114,4 @@
 		margin: 0px;
 	}
 
-    img {
-        padding: 0px;
-        margin: 0px;
-        margin-top: -10px;
-        margin-bottom: 6px;
-        /* background-color: black; */
-    }
-
-	#text {
-		/* display: none; */
-		/* height: 500px; */
-		max-width: 600px;
-		line-height: 1.5;
-		margin-left: 20px;
-		margin-right: 20px;
-		color: rgb(70, 70, 70);
-        font-size: 12px;
-	}
 </style>
