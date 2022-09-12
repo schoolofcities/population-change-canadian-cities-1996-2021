@@ -10,7 +10,7 @@
   <defs
      id="defs828" />
   <path
-     style="fill:none;stroke:#ececec;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      d="m 166.65747,45.5 h 40"
      id="path43227" />
   <path
@@ -27,12 +27,12 @@
      cx="192.69804"
      cy="31"
      rx="13.649"
-     ry="12.649" />
+     ry="13.649" />
   <ellipse
      style="fill:#ff5842;fill-opacity:1;stroke:#dc4633;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path1150-3"
      cx="173.24858"
-     cy="39"
+     cy="39.5"
      rx="5"
      ry="5" />
   <text
@@ -66,7 +66,7 @@
        id="text"
        style="font-size:13.3333px;fill:#333333">POP21 - POP96 = </tspan></text>
   <path
-     style="fill:none;stroke:#ececec;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="fill:none;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      d="m 267.19599,45.5 h 40"
      id="path43227-5" />
   <path
@@ -88,7 +88,7 @@
      style="fill:#6fc7ea;fill-opacity:1;stroke:#007fa3;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path1150-3-8"
      cx="273.78711"
-     cy="39"
+     cy="39.5"
      rx="5"
      ry="5" />
   <text

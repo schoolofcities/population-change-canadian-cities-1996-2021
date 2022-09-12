@@ -17,7 +17,7 @@
 		<h1>25 Years of Population Growth & Decline in Canadian Cities</h1>
 
 		<p>
-			<p>Visualizing by neighbourhood census tracts how the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <span id="bold">1996</span> and <span id="bold">2021</span>. The area of the circles are proportional to the number of people who moved in or moved out of each neighbourhood.
+			<p>Visualizing by neighbourhood census tracts how the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <span id="bold">1996</span> and <span id="bold">2021</span>. <br> The area of the circles are proportional to the number of people who moved in or out of each neighbourhood:
 
 		</p>
 
