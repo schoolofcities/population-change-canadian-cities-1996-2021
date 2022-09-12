@@ -25,7 +25,9 @@
             stroke = '#dc4633'
             fill = '#ff5842'
         } else {
-            console.log("no data")
+            radius = 1;
+            stroke = "#fff";
+            fill = "#fff";
         }
     } else {
         pop21 = 0;
