@@ -25,10 +25,11 @@
         
 	</div>
 
-	<div id="more-less" on:click={hideShow}>
-		<p>click here to read more</p>
-	</div>
-	
+	<a href="https://github.com/schoolofcities/population-change-canadian-cities-1996-2021/">
+		<div id="more-less" >
+			<p>click here to read more</p>
+		</div>
+	</a>
 	<!-- <div id="text">
 		<p>
 			The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss. 
@@ -52,7 +53,7 @@
         height: 255px;
 		border-top: solid 1px #1E3765;
 		float: left;
-		z-index: 99;
+		z-index: 9;
 		background-color: rgb(250, 250, 250);
 		bottom: 0;
         left: 0;
@@ -124,6 +125,10 @@
 		font-family: Roboto, sans-serif;
 		padding: 0px;
 		margin: 0px;
+	}
+	
+	a {
+		text-decoration: none;
 	}
 
 </style>
