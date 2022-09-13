@@ -37,7 +37,7 @@
 <style>
     #panel {
 		margin: auto;
-        height: 255px;
+        height: 256px;
 		border-top: solid 1px #1E3765;
 		float: left;
 		z-index: 9;
