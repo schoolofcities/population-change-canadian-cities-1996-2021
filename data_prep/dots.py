@@ -27,11 +27,6 @@ def gen_dot(ctuid, number):
             points.append([pnt.x,pnt.y])
     return points
 
-    
-
-    
-
-
 
 all_dots = []
 
@@ -54,3 +49,6 @@ for i, row in df.iterrows():
         None
 
 pd.DataFrame(all_dots, columns = ['T','X','Y']).to_csv("dots100.csv")
+
+
+#
