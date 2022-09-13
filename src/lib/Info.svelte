@@ -17,7 +17,7 @@
 		<h1>25 Years of Population Growth & Decline in Canadian Cities</h1>
 
 		<p>
-			<p>Visualizing by neighbourhood census tracts how the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <span id="bold">1996</span> and <span id="bold">2021</span>. <br> The area of the circles are proportional to the number of people who moved in or out of each neighbourhood:
+			<p>Visualizing by neighbourhood census tracts how the population has increased <Circle stroke="#007FA3" fill="#6FC7EA"/> or decreased <Circle stroke="#dc4633" fill="#ff5842"/> between <span id="bold">1996</span> and <span id="bold">2021</span>. <br> The area of the circles are proportional to the growth or decline in population in each neighbourhood:
 
 		</p>
 
@@ -30,19 +30,6 @@
 			<p>click here to read more</p>
 		</div>
 	</a>
-	<!-- <div id="text">
-		<p>
-			The total population across these 33 urban regions increased from X to Y, but this growth was uneven, with QQQQ% of neighbourhoods experiencing population loss. 
-		</p>
-	
-		<p>	
-			The area of the circles are proportional to the number of people who moved in or moved out of each neighbourhood.
-		</p>
-	
-		<p>	
-			Click on the map to view numbers for a specific neighbourhood. 
-		</p>
-	</div> -->
 
 </div>
 
