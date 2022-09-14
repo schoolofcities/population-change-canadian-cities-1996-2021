@@ -23,7 +23,7 @@
 			center: [-79.45, 43.65], 
 			zoom: 10,
 			maxZoom: 12,
-			minZoom: 9,
+			minZoom: 5,
 			projection: 'globe',
 			scrollZoom: true,
 			attributionControl: false
@@ -31,7 +31,7 @@
 		
 		
 		map.addControl(new mapboxgl.AttributionControl({
-			customAttribution: 'Map by Jeff Allen'
+			customAttribution: 'Map by <a href="http://jamaps.github.io/about.html">Jeff Allen</a>'
 		}), 'bottom-right');
 		map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
@@ -78,9 +78,9 @@
 		ctuid = "0";
 		map.setPaintProperty('ct_fill', 'fill-color', '#fff');
 		map.panTo(city.original.geometry.coordinates);
+		map.zoonTo(10);
 	}
 
-	// https://svelte.dev/repl/a1b828d80de24f7e995b2365782c8d04?version=3.50.0
 
 </script>
 
