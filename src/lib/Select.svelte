@@ -1,6 +1,6 @@
 <script>
 
-    import ct from "../assets/ct-pts.geo.json";
+    import ct from "../assets/ct.geo.json";
 
     export let ctuid;
 
@@ -13,8 +13,8 @@
     $: data = ct.features.filter(ct => ct.properties.ctuid === ctuid)[0];
 
     $: if (data) {
-        pop21 = data.properties.pop21;
-        pop96 = data.properties.pop96;
+        pop21 = data.properties.pop_2021;
+        pop96 = data.properties.pop_1996;
         if (pop21 > pop96) {
             radius = 1 + 2 * ((pop21 - pop96) / 250) ** 0.5
             stroke = '#007fa3'
